@@ -1,0 +1,17 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+langchain
+langchain-community
+langchain-core
+sentence-transformers
+qdrant-client
+pypdf
+unstructured
+prefect
+fastapi
+uvicorn
+python-docx
+gitpython
+streamlit
+langchain-groq
+google-generativeai>=0.5.0
+langchain-google-genai>=0.1.5

@@ -1,0 +1,59 @@
+# docker-compose.yml
+services:
+  # --- Perfil Principal (se inicia con 'docker-compose up') ---
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:6333/healthz || exit 1"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+  rag_api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      QDRANT_HOST: qdrant
+    depends_on:
+      qdrant:
+        condition: service_started
+    command: ["uvicorn", "rag_api:app", "--host", "0.0.0.0", "--port", "8000"]
+
+  admin_panel:
+    build: .
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      RAG_API_URL: http://rag_api:8000
+    depends_on:
+      - rag_api
+    command: ["streamlit", "run", "admin_panel.py"]
+
+  # --- Perfil de Ingesta (se inicia con 'docker-compose up --profile ingest') ---
+  ingestor:
+    profiles: ["ingest"] # <-- Define el perfil para este servicio
+    build: .
+    env_file:
+      - .env
+    environment:
+      QDRANT_HOST: qdrant
+    volumes:
+      - ./data_local:/app/data
+    depends_on:
+      qdrant:
+        condition: service_started
+    command: ["python", "ingestion_flow.py"]
+    restart: "no" # Asegura que el contenedor no se reinicie después de terminar su tarea
+
+volumes:
+  qdrant_data:
