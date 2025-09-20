@@ -41,8 +41,8 @@ El sistema se compone de varios servicios orquestados a trav√©s de Docker, dise√
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone <URL-DEL-REPOSITORIO>
-cd <NOMBRE-DEL-DIRECTORIO>
+git clone https://github.com/ale-uy/Tu_CV_Chatero.git
+cd Tu_CV_Chatero
 ```
 
 ### 2. Configurar Variables de Entorno
