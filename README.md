@@ -88,6 +88,7 @@ Este comando iniciará el contenedor `ingestor`, ejecutará el script `ingestion
 ### API de RAG
 
 -   La API estará disponible en `http://localhost:8000`.
+-   Puedes ver tus colecciones Qdrant en `http://localhost:3000/dashboard`.
 -   Puedes enviar preguntas al endpoint `/ask` usando `curl` o cualquier cliente HTTP:
 
 ```bash
