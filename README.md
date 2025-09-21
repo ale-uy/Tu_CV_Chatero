@@ -57,7 +57,7 @@ Ahora, edita el archivo `.env` y completa las variables con tus propias credenci
 
 ### 3. Colocar los Documentos
 
-Agrega los archivos (`.pdf`, `.md`, `.docx`, etc.) que conformarán la base de conocimiento de la IA dentro del directorio `data_local/` y sus subcarpetas.
+Agrega los archivos (`.pdf`, `.md`, `.docx`, etc.) que conformarán la base de conocimiento de la IA dentro del directorio `data_local/` y sus subcarpetas (`CV/`, `proyectos/` y `repos/`).
 
 ### 4. Iniciar los Servicios
 
