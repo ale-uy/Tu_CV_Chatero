@@ -14,7 +14,7 @@ from typing import List, Dict, Any
 # --- Configuración General ---
 QDRANT_HOST = os.getenv("QDRANT_HOST", "localhost")
 QDRANT_PORT = int(os.getenv("QDRANT_PORT", 6333))
-COLLECTION_NAME = os.getenv("COLLECTION_NAME", "perfil_personal")
+COLLECTION_NAME = os.getenv("COLLECTION_NAME", "carrera_profesional")
 
 # --- Configuración de Rutas de Datos ---
 DATA_DIR = os.getenv("DATA_DIR", "/app/data")
