@@ -57,7 +57,7 @@ Ahora, edita el archivo `.env` y completa las variables con tus propias credenci
 
 ### 3. Colocar los Documentos
 
-Agrega los archivos (`.pdf`, `.md`, `.docx`, etc.) que conformarán la base de conocimiento de la IA dentro del directorio `data_local/` y sus subcarpetas.
+Agrega los archivos (`.pdf`, `.md`, `.docx`, etc.) que conformarán la base de conocimiento de la IA dentro del directorio `data_local/` y sus subcarpetas (`CV/`, `proyectos/` y `repos/`).
 
 ### 4. Iniciar los Servicios
 
@@ -88,6 +88,7 @@ Este comando iniciará el contenedor `ingestor`, ejecutará el script `ingestion
 ### API de RAG
 
 -   La API estará disponible en `http://localhost:8000`.
+-   Puedes ver tus colecciones Qdrant en `http://localhost:3000/dashboard`.
 -   Puedes enviar preguntas al endpoint `/ask` usando `curl` o cualquier cliente HTTP:
 
 ```bash
@@ -98,3 +99,4 @@ curl -X POST "http://localhost:8000/ask" \
 
 -   Consulta la documentación interactiva de la API (generada por FastAPI) en: `http://localhost:8000/docs`
 
+### EN PRODUCCION: [CHATEA CONMIGO](https://ale-uy.github.io)
